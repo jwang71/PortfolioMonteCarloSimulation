@@ -17,6 +17,7 @@ public class RunSimulation {
 		PriorityQueue<Double> lastTenPercentA = new PriorityQueue<Double>(1000, Collections.reverseOrder());
 		PriorityQueue<Double> lastTenPercentB = new PriorityQueue<Double>(1000, Collections.reverseOrder());
 
+		//Use MedianTracker to track median of the results 
 		MedianTracker mtA = new MedianTracker();
 		MedianTracker mtB = new MedianTracker();
 	
@@ -44,7 +45,6 @@ public class RunSimulation {
 				lastTenPercentA.poll();
 				lastTenPercentA.offer((Double)totalA);
 			}
-			
 			
 			totalB = sB.runMultiYears(20, 100000.0, 6.189, 6.3438);
 			mtB.read(totalB);
