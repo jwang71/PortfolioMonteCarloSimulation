@@ -12,11 +12,8 @@ public class MonteCarloSimulation {
 	
 	private double getNextYear(double base, double mean, double sd) {
 		Random random = new Random();
-		//System.out.println("nextGaussian: " + random.nextGaussian()/100);
 		double myNextGaussian = (random.nextGaussian()*sd+mean)/100;
-		//System.out.println("myNextGaussian is: " + myNextGaussian);
 		double nextYear = (base*(1 + myNextGaussian))/(1+INFLATION);
-		//System.out.println("nextYear is: " + nextYear);
 		return nextYear;
 	}
 
@@ -28,7 +25,6 @@ public class MonteCarloSimulation {
 			nextYear = getNextYear(curYear, mean, sd);
 			curYear = nextYear;
 		}
-		//System.out.println("20th year " + sd + " total is: " + curYear);
 		return curYear;
 	}
 }
